@@ -138,6 +138,15 @@ echo
 echo -e "${GREEN}Candy SDDM theme changes applied!${NOCOLOR}"
 echo
 
+# Apply waybar config
+echo
+echo -e "${BLUE}Applying Waybar config...${NOCOLOR}"
+echo
+\cp -rf ./waybar/* ~/.config/waybar/
+echo
+echo -e "${GREEN}Waybar config applied!${NOCOLOR}"
+echo
+
 # Install Tailscale
 echo
 echo -e "${BLUE}Installing Tailscale...${NOCOLOR}"
