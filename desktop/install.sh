@@ -195,5 +195,5 @@ echo "..."
 echo -e "${GREEN}Tailscale installed!${NOCOLOR}"
 echo "..."
 sleep 1
-echo "..."
+
 echo -e "${PURPLE}Post-install script complete, hopefully this shit worked!${NOCOLOR}"
