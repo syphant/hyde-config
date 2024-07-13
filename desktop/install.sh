@@ -1,11 +1,35 @@
 #!/usr/bin/zsh
 
 RED='\033[0;31m'
-GREEN='\032[0;32m'
-BLUE='\032[0;34m'
-PURPLE='\032[0;35m'
-CYAN='\032[0;36m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
 NOCOLOR='\033[0m'
+
+function in {
+    local -a inPkg=("$@")
+    local -a arch=()
+    local -a aur=()
+
+    for pkg in "${inPkg[@]}"; do
+        if pacman -Si "${pkg}" &>/dev/null ; then
+            arch+=("${pkg}")
+        else 
+            aur+=("${pkg}")
+        fi
+    done
+
+    if [[ ${#arch[@]} -gt 0 ]]; then
+        sudo pacman -S "${arch[@]}"
+    fi
+
+    if [[ ${#aur[@]} -gt 0 ]]; then
+        ${aurhelper} -S "${aur[@]}"
+    fi
+}
+
+alias un='$aurhelper -Rns' # uninstall package
 
 # Uninstall unneeded packages
 echo
@@ -68,6 +92,7 @@ echo
 echo
 echo -e "${BLUE}Applying CAVA config...${NOCOLOR}"
 echo
+mkdir ~/.config/cava
 \cp -f ./cava/config ~/.config/cava/config
 echo
 echo -e "${GREEN}CAVA config applied!${NOCOLOR}"
@@ -78,7 +103,7 @@ echo
 echo -e "${BLUE}Applying changes to Catppuccin Mocha HyDE theme...${NOCOLOR}"
 echo
 rm -rf ~/.config/hyde/themes/Catppuccin\ Mocha/wallpapers/*
-\cp -f ./hyde/themes/Catppuccin\ Mocha/* ~/.config/hyde/themes/Catppuccin Mocha/
+\cp -f ./hyde/themes/Catppuccin\ Mocha/* ~/.config/hyde/themes/Catppuccin\ Mocha/
 echo
 echo -e "${GREEN}Catppuccin Mocha HyDE theme changes applied!${NOCOLOR}"
 echo
@@ -96,8 +121,8 @@ echo
 echo
 echo -e "${BLUE}Applying Fastfetch config...${NOCOLOR}"
 echo
-rm -rf ~/.config/fastfetch/*
-cp ./fastfetch/* ~/.config/fastfetch/
+\rm -rf ~/.config/fastfetch/*
+\cp -rf ./fastfetch/* ~/.config/fastfetch/
 echo
 echo -e "${GREEN}Fastfetch config applied!${NOCOLOR}"
 echo
