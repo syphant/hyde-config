@@ -1,0 +1,10 @@
+0|44|top|( cpu memory custom/cpuinfo custom/gpuinfo ) ( idle_inhibitor clock )|( hyprland/workspaces hyprland/window )|( backlight network pulseaudio pulseaudio#microphone custom/updates custom/keybindhint ) ( tray battery ) ( custom/power )
+0|44|top|( cpu memory custom/cpuinfo custom/gpuinfo ) ( idle_inhibitor clock ) ( hyprland/workspaces )|( hyprland/window )|( backlight network pulseaudio pulseaudio#microphone custom/updates custom/keybindhint ) ( tray battery ) ( custom/power )
+0|44|top|( cpu memory custom/cpuinfo ) ( idle_inhibitor clock ) ( hyprland/workspaces )|( hyprland/window )|( backlight network pulseaudio pulseaudio#microphone custom/updates custom/keybindhint ) ( tray battery ) ( custom/power )
+0|44|top|( hyprland/workspaces hyprland/window )|( idle_inhibitor clock )|( cpu memory custom/cpuinfo custom/gpuinfo ) ( backlight network pulseaudio pulseaudio#microphone custom/updates custom/keybindhint ) ( tray battery ) ( custom/power )
+0|44|top|( custom/power ) ( wlr/taskbar custom/spotify ) |( idle_inhibitor clock )|( tray battery ) ( backlight network pulseaudio pulseaudio#microphone custom/notifications custom/keybindhint )
+0|44|top|( custom/power ) ( wlr/taskbar custom/spotify ) |( idle_inhibitor clock )|( tray battery ) ( backlight network pulseaudio pulseaudio#microphone custom/keybindhint )
+0|44|top||( custom/power ) ( tray battery ) ( wlr/taskbar idle_inhibitor clock )|
+0|44|top|( cpu memory custom/cpuinfo custom/gpuinfo ) ( idle_inhibitor clock ) ( hyprland/workspaces )|( wlr/taskbar )|( backlight network pulseaudio pulseaudio#microphone custom/updates custom/keybindhint ) ( tray battery ) ( custom/power )
+1|44|top|( hyprland/workspaces hyprland/window ) ( mpris )|( idle_inhibitor clock )|( cpu memory custom/cpuinfo custom/gpuinfo ) ( backlight network pulseaudio pulseaudio#microphone custom/updates ) ( tray battery ) ( custom/power )
+0|44|top|( custom/power ) ( idle_inhibitor clock custom/spotify )|( wlr/taskbar )|( tray ) ( backlight network pulseaudio pulseaudio#microphone )
