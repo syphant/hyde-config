@@ -63,9 +63,9 @@ sleep 1
 echo -e "${BLUE}Installing flatpaks...${NOCOLOR}"
 echo "..."
 sleep 1
-flatpak install com.discordapp.Discord -y
-flatpak install com.parsecgaming.parsec -y
-flatpak install com.moonlight_stream.Moonlight -y
+flatpak install -y com.discordapp.Discord
+flatpak install -y com.parsecgaming.parsec
+flatpak install -y com.moonlight_stream.Moonlight
 echo "..."
 echo -e "${GREEN}Flatpaks installed!${NOCOLOR}"
 echo "..."
