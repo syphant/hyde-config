@@ -52,25 +52,8 @@ sleep 1
 echo -e "${BLUE}Installing needed packages...${NOCOLOR}"
 echo "..."
 sleep 1
-in bat
-in cava
-in flatpak
-in font-manager
-in intel-media-driver
-in gnome-keyring
-in oh-my-posh
-in protonvpn
-in spotify
-in tmatrix
-in genact
-in brave-bin
-in neovim
-in obs-studio
-in podman
-in distrobox
-in unzip
-in vscodium
-in spicetify-cli
+pacman -S bat flatpak font-manager gnome-keyring intel-media-driver neovim obs-studio distrobox podman unzip
+yay -S cava oh-my-posh protonvpn spotify tmatrix genact brave-bin vscodium spicetify-cli jellyfin-media-player
 echo "..."
 echo -e "${GREEN}Needed packages installed!${NOCOLOR}"
 echo "..."
