@@ -42,7 +42,7 @@ alias un='$aurhelper -Rns' # uninstall package
 echo -e "${BLUE}Uninstalling unneeded packages...${NOCOLOR}"
 echo "..."
 sleep 1
-un code vim kwallet
+un code vim
 echo "..."
 echo -e "${GREEN}Unneeded packages uninstalled!${NOCOLOR}"
 echo "..."
