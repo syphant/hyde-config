@@ -7,6 +7,13 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 NOCOLOR='\033[0m'
 
+# Detect the AUR wrapper
+if pacman -Qi yay &>/dev/null ; then
+   aurhelper="yay"
+elif pacman -Qi paru &>/dev/null ; then
+   aurhelper="paru"
+fi
+
 function in {
     local -a inPkg=("$@")
     local -a arch=()
@@ -32,154 +39,160 @@ function in {
 alias un='$aurhelper -Rns' # uninstall package
 
 # Uninstall unneeded packages
-echo
 echo -e "${BLUE}Uninstalling unneeded packages...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 un code vim kwallet
-echo
+echo "..."
 echo -e "${GREEN}Unneeded packages uninstalled!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Install needed packages
-echo
 echo -e "${BLUE}Installing needed packages...${NOCOLOR}"
-echo
-in bat cava flatpak font-manager intel-media-driver gnome-keyring protonvpn spotify tmatrix genact brave-bin neovim obs-studio podman distrobox unzip vscodium spicetify-cli
-echo
+echo "..."
+sleep 1
+in bat cava flatpak font-manager intel-media-driver gnome-keyring oh-my-posh protonvpn spotify tmatrix genact brave-bin neovim obs-studio podman distrobox unzip vscodium spicetify-cli
+echo "..."
 echo -e "${GREEN}Needed packages installed!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Install flatpak packages
-echo
 echo -e "${BLUE}Installing flatpaks...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 flatpak install com.discordapp.Discord -y
 flatpak install com.parsecgaming.parsec -y
 flatpak install com.moonlight_stream.Moonlight -y
-echo
+echo "..."
 echo -e "${GREEN}Flatpaks installed!${NOCOLOR}"
-echo
-
-# Install Oh My Posh
-echo
-echo -e "${BLUE}Installing Oh My Posh...${NOCOLOR}"
-echo
-curl -s https://ohmyposh.dev/install.sh | bash -s
-echo
-echo -e "${GREEN}Oh My Posh installed!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply Oh My Posh config
-echo
 echo -e "${BLUE}Applying Oh My Posh config...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 mkdir ~/.config/ohmyposh
 \cp -f ./ohmyposh/config.json ~/.config/ohmyposh/config.json
-echo
+echo "..."
 echo -e "${GREEN}Oh My Posh config applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply ZSH config
-echo
 echo -e "${BLUE}Applying ZSH config...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 \cp -f .zshrc ~/.zshrc
-echo
+echo "..."
 echo -e "${GREEN}ZSH config applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply CAVA config
-echo
 echo -e "${BLUE}Applying CAVA config...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 mkdir ~/.config/cava
 \cp -f ./cava/config ~/.config/cava/config
-echo
+echo "..."
 echo -e "${GREEN}CAVA config applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply changes to Catppuccin Mocha HyDE theme
-echo
 echo -e "${BLUE}Applying changes to Catppuccin Mocha HyDE theme...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 rm -rf ~/.config/hyde/themes/Catppuccin\ Mocha/wallpapers/*
-\cp -f ./hyde/themes/Catppuccin\ Mocha/* ~/.config/hyde/themes/Catppuccin\ Mocha/
-echo
+\cp -rf ./hyde/themes/Catppuccin\ Mocha/* ~/.config/hyde/themes/Catppuccin\ Mocha/
+echo "..."
 echo -e "${GREEN}Catppuccin Mocha HyDE theme changes applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply Kitty config
-echo
 echo -e "${BLUE}Applying Kitty config...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 \cp -f ./kitty/kitty.conf ~/.config/kitty/kitty.conf
-echo
+echo "..."
 echo -e "${GREEN}Kitty config applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply Fastfetch config
-echo
 echo -e "${BLUE}Applying Fastfetch config...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 \rm -rf ~/.config/fastfetch/*
 \cp -rf ./fastfetch/* ~/.config/fastfetch/
-echo
+echo "..."
 echo -e "${GREEN}Fastfetch config applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply Hyprland userprefs
-echo
 echo -e "${BLUE}Applying Hyprland userprefs...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 \cp -f ./hypr/userprefs.conf ~/.config/hypr/userprefs.conf
-echo
+echo "..."
 echo -e "${GREEN}Hyprland userprefs applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Install NvChad
-echo
 echo -e "${BLUE}Installing NvChad...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 git clone https://github.com/NvChad/starter ~/.config/nvim
-echo
+echo "..."
 echo -e "${GREEN}Installed NvChad! ${RED}YOU WILL NEED to enter nvim and then run ${CYAN}:MasonInstallAll ${RED}after lazy.nvim finishes downloading plugins!!!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply NvChad transparency
-echo
 echo -e "${BLUE}Applying NvChad transparency...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 \cp -f ./nvchad/chadrc.lua ~/.config/nvim/lua/chadrc.lua
-echo
+echo "..."
 echo -e "${GREEN}NvChad transparency applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply changes to 'Candy' SDDM theme
-echo
 echo -e "${BLUE}Applying changes to Candy SDDM theme...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 sudo \cp -f ./sddm/themes/Candy/theme.conf /usr/share/sddm/themes/Candy/theme.conf
-echo
+echo "..."
 echo -e "${GREEN}Candy SDDM theme changes applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Apply waybar config
-echo
 echo -e "${BLUE}Applying Waybar config...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 \cp -rf ./waybar/* ~/.config/waybar/
-echo
+echo "..."
 echo -e "${GREEN}Waybar config applied!${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 
 # Install Tailscale
-echo
 echo -e "${BLUE}Installing Tailscale...${NOCOLOR}"
-echo
+echo "..."
+sleep 1
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up
-echo
+echo "..."
 echo -e "${GREEN}Tailscale installed!${NOCOLOR}"
-echo
-echo
+echo "..."
+sleep 1
+echo "..."
 echo -e "${PURPLE}Post-install script complete, hopefully this shit worked!${NOCOLOR}"
