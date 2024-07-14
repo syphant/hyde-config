@@ -103,6 +103,16 @@ echo -e "${GREEN}CAVA config applied!${NOCOLOR}"
 echo "..."
 sleep 1
 
+# Apply dunst config
+echo -e "${BLUE}Applying dunst config...${NOCOLOR}"
+echo "..."
+sleep 1
+\cp -f ./dunst/* ~/.config/dunst/
+echo "..."
+echo -e "${GREEN}dunst config applied!${NOCOLOR}"
+echo "..."
+sleep 1
+
 # Apply changes to Catppuccin Mocha HyDE theme
 echo -e "${BLUE}Applying changes to Catppuccin Mocha HyDE theme...${NOCOLOR}"
 echo "..."
